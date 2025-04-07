@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPPES Provider Matcher</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #log-container {
+            height: 300px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-family: monospace;
+            white-space: pre-line;
+        }
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .file-input-wrapper {
+            margin-bottom: 15px;
+        }
+        #summary-stats {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="text-center">NPPES Provider Matcher</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5>File Selection</h5>
+            </div>
+            <div class="card-body">
+                <div class="file-input-wrapper">
+                    <label for="inputFile" class="form-label">Input CSV File:</label>
+                    <input class="form-control" type="file" id="inputFile" accept=".csv">
+                    <small class="text-muted">CSV must contain columns: First Name, Last Name, Zip</small>
+                </div>
+                <div class="mt-4">
+                    <button id="processButton" class="btn btn-primary">Process Providers</button>
+                    <button id="downloadButton" class="btn btn-success ms-2" disabled>Download Results</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5>Progress</h5>
+            </div>
+            <div class="card-body">
+                <div class="progress mb-3">
+                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+                <div id="status">Ready</div>
+                <div id="log-container"></div>
+            </div>
+        </div>
+        
+        <div id="summary-stats" class="card d-none">
+            <div class="card-header">
+                <h5>Results Summary</h5>
+            </div>
+            <div class="card-body">
+                <div id="summary-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="nppes-matcher.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
