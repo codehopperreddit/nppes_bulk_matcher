@@ -3,7 +3,7 @@
  */
 class NPPESMatcher {
     constructor() {
-        this.baseUrl = "https://npiregistry.cms.hhs.gov/api/";
+        this.baseUrl = "https://cors-anywhere-syse.onrender.com/https://npiregistry.cms.hhs.gov/api/";
         this.rateLimitDelay = 500; // 500ms to avoid rate limiting
         this.addressTypes = ['LOCATION', 'MAILING', 'PRIMARY', 'SECONDARY'];
     }
